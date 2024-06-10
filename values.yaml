@@ -1,0 +1,22 @@
+# Add your nginx server details here
+#nginxServer: "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:8080/stub_status"
+nginxServer: "http://app1-service.default.svc.cluster.local:80/metrics"
+
+serviceMonitor:
+  # When set true then use a ServiceMonitor to configure scraping
+  enabled: true
+  # Set the namespace the ServiceMonitor should be deployed
+  namespace: ""
+  # Set how frequently Prometheus should scrape
+  interval: 30s
+  # Set path to nginx-exporter telemtery-path
+  path: /metrics
+  # Set labels for the ServiceMonitor, use this to define your scrape label for Prometheus Operator
+  additionalLabels:
+    release: monitoring
+  # Set timeout for scrape
+  timeout: 10s
+  # Set of labels to transfer on the Kubernetes Service onto the target.
+  # targetLabels: []
+  # metricRelabelings: []
+
