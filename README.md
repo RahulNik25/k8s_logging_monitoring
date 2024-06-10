@@ -17,6 +17,7 @@ Deploy the nginx exporter to get ngixn application metrics and post it to promet
  - `helm install nginx-exporter prometheus-community/prometheus-nginx-exporter -f values.yaml`
 
 **Once the nginx exporter is deployed, it will connect to nginx service and get the nginx metric.**
+
 **prometheus-nginx-exporter uses serviceMonitor to add the target into prometheus pod without changing any prometheus file**
 
 Verify if everything is working as expected:
